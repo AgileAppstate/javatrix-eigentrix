@@ -15,5 +15,5 @@ public class Testtrix {
         b.print(9,4);
 
 	/* b should be {6, 15, 24} */
-    }
+   }
 }
