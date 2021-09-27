@@ -20,6 +20,11 @@ public class TestConstructors {
 	  // Test #3: n == m
 	  Matrix m3 = new Matrix(2, 2, 0.0);
 
+	  // Test #4: either n,m are 0 leads to [0][0] matrix, but is legal!
+	  Matrix m4 = new Matrix(0, 2, 1.1);
+	  Matrix m5 = new Matrix(2, 0, 1.1);
+	  Matrix m6 = new Matrix(0, 0, 1.1);
+
 	  // for now, can only test that it seems to complete properly
 	  // will need to add more facets to this test when other 
 	  // features are implemented: checking dimensions, number of elements,
