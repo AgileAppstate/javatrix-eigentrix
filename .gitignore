@@ -1,4 +1,4 @@
-*.class
+**/*.class
 *~
 #*
-junit-platform-console-standalone-1.2.0.jar
+
