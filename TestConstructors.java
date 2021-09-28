@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
+import javatrix.*;
+
 public class TestConstructors {
       @Test
       public void testConstructor1_positive() {

@@ -10,7 +10,8 @@
 HAMCREST_JAR = /usr/share/java/hamcrest/core-1.1.jar
 JUNIT5_JAR = junit-platform-console-standalone-1.2.0.jar 
 JUNIT5_RUNNER = org.junit.platform.console.ConsoleLauncher
-CKSTYLE_COMMAND =  -jar /usr/local/checkstyle-5.5/checkstyle-5.5-all.jar
+#CKSTYLE_COMMAND =  -jar /usr/local/checkstyle-5.5/checkstyle-5.5-all.jar
+CKSTYLE_COMMAND =  -jar checkstyle-9.0-all.jar
 CKSTYLE_XML = cs_appstate_checks.xml
 
 default: 
@@ -35,16 +36,18 @@ compile: $(JUNIT5_JAR)
 clean:
 	rm -f *~
 	rm -f *.class
+	rm -f javatrix/*.class
+	rm -f javatrix/*~
 
 test: $(JUNIT5_JAR)
 	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
 
 defchk: Matrix.java $(CKSTYLE_XML)
 #	checkstyle Matrix.java
-	java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) Matrix.java
+	cd javatrix ; java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) Matrix.java
 
-stylechk: Matrix.java style.xml
-	java $(CKSTYLE_COMMAND) -c style.xml Matrix.java
+stylechk: javatrix/Matrix.java style.xml
+	java $(CKSTYLE_COMMAND) -c style.xml javatrix/Matrix.java
 
 style.xml:
 	@echo "Custom checkstyle needs a local style.xml file."

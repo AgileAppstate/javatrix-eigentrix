@@ -9,6 +9,10 @@ Checkstyle configuration for CS department at Appalachian State University
         <property name="severity" value="warning"/>
         <property name="lineSeparator" value="lf"/>
     </module>
+        <module name="LineLength">
+            <property name="ignorePattern" value="^$"/>
+            <property name="max" value="80"/>            
+        </module>
         <!-- Section 3.1 -->
 <!--rmp    <module name="FileLength">
         <property name="max" value="1000"/>
@@ -20,6 +24,7 @@ Checkstyle configuration for CS department at Appalachian State University
             <property name="multiLines" value="4"/>
         </module>
 -->
+
     <module name="TreeWalker">
 
         <!-- Section 3.1 -->
@@ -32,12 +37,6 @@ Checkstyle configuration for CS department at Appalachian State University
         <module name="Indentation">
             <property name="caseIndent" value="4"/>
         </module>
-        <module name="LineLength">
-            <property name="severity" value="warning"/>
-            <property name="tabWidth" value="4"/>
-            <property name="ignorePattern" value="^$"/>
-            <property name="max" value="80"/>            
-        </module>
 
         <!-- Section 5.1 -->
         <module name="JavadocStyle"/>
@@ -46,7 +45,9 @@ Checkstyle configuration for CS department at Appalachian State University
             <property name="authorFormat" value="\S"/>
             <property name="versionFormat" value="\S"/>
         </module>        <!-- Section 5.1.3 -->
-        <module name="JavadocMethod"/>
+        <module name="JavadocMethod">
+	    <property name="validateThrows" value="true"/>
+	</module>
         <!-- Section 5.2.3 -->
         <module name="TrailingComment"/>
 
@@ -126,4 +127,6 @@ Checkstyle configuration for CS department at Appalachian State University
 
     </module>
 
+
 </module>
+
