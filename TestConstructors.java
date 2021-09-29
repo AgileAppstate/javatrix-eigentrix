@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import javatrix.*;
 
 public class TestConstructors {
+
       @Test
       public void testConstructor1_positive() {
 	  // Tests "normal" usages...
@@ -78,4 +79,34 @@ public class TestConstructors {
 	  // make sure expected exceptions were thrown
 	  assertTrue(result1 && result2 && result3);
       }
+
+      @Test
+      public void testConstructor2_positive() {
+	  // Tests "normal" usages...
+	  // Matrix(double[][]values)
+	  
+	  // m==n
+	  double[][] vals1 = {{1.,2.,3},{4.,5.,6.},{7.,8.,9.}};
+	  Matrix m1 = new Matrix(vals1);
+
+	  // m<n
+	  double[][] vals2 = {{1.,2.,3},{4.,5.,6.}};
+	  Matrix m2 = new Matrix(vals2);
+
+	  // m>n
+	  double[][] vals3 = {{1.,2.},{4.,5.},{7.,8.}};
+	  Matrix m3 = new Matrix(vals3);
+
+	  // Test #4: n is empty
+	  double[][] vals4 = {{},{},{}};
+	  Matrix m4 = new Matrix(vals4);
+
+
+	  // for now, can only test that it seems to complete properly
+	  // will need to add more facets to this test when other 
+	  // features are implemented: checking dimensions, number of elements,
+	  // values of elements, etc.
+	  assertTrue(true);
+      }
+
 }
