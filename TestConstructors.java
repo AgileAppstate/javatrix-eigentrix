@@ -109,4 +109,26 @@ public class TestConstructors {
 	  assertTrue(true);
       }
 
+      @Test
+      public void testConstructor2_negative() {
+	  // Tests "abnormal" usages...
+	  boolean result1=false, result2=false, result3=false;
+
+	  // Test #1: unequal sizes
+	  double[][] A = {{1.},{2.1, 2.2}};
+	  try {
+	      Matrix m1 = new Matrix(A);
+	  } catch (IllegalArgumentException e) {
+	      // Yay! Matrix should throw this exception!
+	      result1 = true;
+	  }
+	  catch (Exception e) {
+	      // Uh oh. Something unexpectedly bad happened...
+	      assertTrue(false);
+	  }
+	  
+	  assertTrue(result1);
+      }
+
+
 }
