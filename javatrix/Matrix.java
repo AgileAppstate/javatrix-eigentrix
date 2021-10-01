@@ -77,4 +77,14 @@ public class Matrix {
 	    }
 	}
     }
+
+    public void print(int w, int d) {
+	String format = "%" + (w+1) + "." + d + "f";
+	for (int i = 0; i < numRows; i++) {
+	    for (int j = 0; j < numCols; j++) {
+		System.out.printf(format, data[i][j]);
+	    }
+	    System.out.println();
+	}
+    }
 }
