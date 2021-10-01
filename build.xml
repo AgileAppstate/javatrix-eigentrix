@@ -3,8 +3,7 @@
     Build file for JavaTrix Project.
   </description>
   <!-- set global properties for this build -->
-  <property name="src" location="javatrix"/>
-  <property name="test" location="javatrixtest"/>
+  <property name="src" location="src"/>
   <path id="classpath">
       <fileset dir="." includes="junit-platform-console-standalone-1.2.0.jar"/>
   </path>
@@ -22,10 +21,10 @@
 
   <target name="test" depends="compile"
         description="Running the tests">
-    <java fork="true" dir="./javatrix" classname="org.junit.platform.console.ConsoleLauncher" failonerror="true">
+    <java fork="true" dir="./src" classname="org.junit.platform.console.ConsoleLauncher" failonerror="true">
       <arg value="--scan-class-path"/>
       <classpath>
-        <path location="./javatrix"/>
+        <path location="./src"/>
         <path location="./junit-platform-console-standalone-1.2.0.jar"/>
       </classpath>
     </java>
@@ -35,7 +34,8 @@
         description="Clean up">
     <!-- Delete the ${build} and ${dist} directory trees -->
     <delete>
-      <fileset dir="./javatrix" includes="*.class"/>
+      <fileset dir="./src/javatrix/" includes="*.class"/>
+      <fileset dir="./src" includes="*.class"/>
     </delete>
   </target>
 </project>
