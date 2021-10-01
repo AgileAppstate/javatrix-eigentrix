@@ -78,6 +78,14 @@ public class Matrix {
 	}
     }
 
+    /**
+     * Print the matrix to stdout. 
+     *
+     * Line the elements up in columns with a Fortran-like 'Fw.d' style format.
+     *
+     * @param w - Column width.
+     * @param d - Number of digits after the decimal.
+     */
     public void print(int w, int d) {
 	String format = "%" + (w+1) + "." + d + "f";
 	for (int i = 0; i < numRows; i++) {
