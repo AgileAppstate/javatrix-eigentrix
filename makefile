@@ -31,7 +31,7 @@ default:
 #Essential that command lines start with single TAB character
 
 compile: $(JUNIT5_JAR)
-	javac -cp .:$(JUNIT5_JAR) *.java
+	cd src ; javac -cp .:../$(JUNIT5_JAR) *.java
 
 clean:
 	rm -f *~
@@ -41,7 +41,7 @@ clean:
 	rm -f javatrixtest/*.class
 
 test: $(JUNIT5_JAR)
-	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
+	cd src ; java -cp .:../$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
 
 defchk: Matrix.java $(CKSTYLE_XML)
 #	checkstyle Matrix.java
