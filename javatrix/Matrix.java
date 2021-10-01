@@ -9,9 +9,6 @@
  * COPYRIGHT (C) EigenTrix CS5666 team. All Rights Reserved.
  */
 
-package javatrix;
-
-
 /**
  * A Matrix ADT for Java.
  *

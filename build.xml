@@ -1,0 +1,41 @@
+<project name="JavaTrix" default="JavaTrix" basedir=".">
+  <description>
+    Build file for JavaTrix Project.
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="javatrix"/>
+  <property name="test" location="javatrixtest"/>
+  <path id="classpath">
+      <fileset dir="." includes="junit-platform-console-standalone-1.2.0.jar"/>
+  </path>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="Compiling Code">
+    <!-- Compile the Java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${src}"  includeantruntime="false" classpathref="classpath" />
+  </target>
+
+  <target name="test" depends="compile"
+        description="Running the tests">
+    <java fork="true" dir="./javatrix" classname="org.junit.platform.console.ConsoleLauncher" failonerror="true">
+      <arg value="--scan-class-path"/>
+      <classpath>
+        <path location="./javatrix"/>
+        <path location="./junit-platform-console-standalone-1.2.0.jar"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="clean"
+        description="Clean up">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete>
+      <fileset dir="./javatrix" includes="*.class"/>
+    </delete>
+  </target>
+</project>

@@ -38,6 +38,7 @@ clean:
 	rm -f *.class
 	rm -f javatrix/*.class
 	rm -f javatrix/*~
+	rm -f javatrixtest/*.class
 
 test: $(JUNIT5_JAR)
 	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
