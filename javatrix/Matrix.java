@@ -52,4 +52,29 @@ public class Matrix {
 	    }
 	}
     }
+
+
+    /**
+     * Constructs an m-by-n matrix from a 2-D array of values.
+     *
+     * @param A - Two-dimensional array of doubles.
+     * @throws IllegalArgumentException - All rows must have the same length.
+     */
+    public Matrix(double[][] A) {
+
+	numRows = A.length;
+	numCols = A[0].length;
+
+	data = new double[numRows][];
+	for (int i = 0; i < numRows; i++) {
+	    if (A[i].length != numCols) {
+		throw new IllegalArgumentException("Rows must have same size");
+	    }
+
+	    data[i] = new double[numCols];
+	    for (int j = 0; j < numCols; j++) {
+		data[i][j] = A[i][j];
+	    }
+	}
+    }
 }
