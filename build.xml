@@ -30,6 +30,12 @@
     </java>
   </target>
 
+  <target name="testtrix" depends="compile"
+        description="Running the tests">
+    <java fork="true" dir="./src" classname="Testtrix"/>
+  </target>
+
+
   <target name="clean"
         description="Clean up">
     <!-- Delete the ${build} and ${dist} directory trees -->
