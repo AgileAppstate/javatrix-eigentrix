@@ -54,4 +54,3 @@ style.xml:
 	@echo "Custom checkstyle needs a local style.xml file."
 	@echo "Copy cs_appstate_checks.xml into style.xml and edit as needed."
 	@echo "--------------------------------------------------------------"
-

@@ -87,7 +87,7 @@ public class Matrix {
      * @param d - Number of digits after the decimal.
      */
     public void print(int w, int d) {
-	String format = "%" + (w+1) + "." + d + "f";
+	String format = "%" + (w + 1) + "." + d + "f";
 	for (int i = 0; i < numRows; i++) {
 	    for (int j = 0; j < numCols; j++) {
 		System.out.printf(format, data[i][j]);
@@ -95,4 +95,102 @@ public class Matrix {
 	    System.out.println();
 	}
     }
+
+    /**
+     * Multiplies a matrix with a second Matrix.
+     *
+     * @param B - Two-dimensional array of doubles.
+     * @throws IllegalArgumentException - Matrix inner dimensions must agree.
+     * @return Matrix which represents the answer of the multiplication.
+     */
+    public Matrix times(Matrix B) {
+
+	if (this.numCols != B.numRows) {
+	    throw new IllegalArgumentException("Matrix inner"
+	      + "dimensions must agree");
+	}
+
+	double[][] answer = new double[this.numRows][B.numCols];
+
+	for (int i = 0; i < this.numRows; i++) {
+	    double[] row = this.getRow(i);
+	    for (int j = 0; j < B.numCols; j++) {
+		answer[i][j] = dotProduct(row, B.getColumn(j));
+	    }
+	}
+
+	return new Matrix(answer);
+    }
+
+    /**
+     * Dot product for two vectors.
+     *
+     * @param row - Row Vector.
+     * @param column - Column Vector.
+     * @throws IllegalArgumentException - Can't Calculate dot
+     * product of different size vectors. 
+     * @return Dot product of the two vectors.
+     */
+    private double dotProduct(double[] row, double[] column) {
+	if (row.length != column.length) {
+	    throw new IllegalArgumentException("Can't Calculate dot" 
+		+ "product of different size vectors");
+	}
+	double answer = 0;
+	for (int i = 0; i < row.length; i++) {
+	    answer += row[i] * column[i];
+	}
+	return answer;
+    }
+
+    /**
+     * Return Row from the Matrix.
+     *
+     * @param index  - Row Index.
+     * @return Row at the index.
+     */
+    public double[] getRow(int index) {
+	double[] answer = new double[this.numCols];
+	for (int i = 0; i < this.numCols; i++) {
+	    answer[i] = this.data[index][i];
+	}
+	return answer;
+    }
+
+    /**
+     * Return Column from the Matrix.
+     *
+     * @param index  - Column Index.
+     * @return Column at the index.
+     */
+    public double[] getColumn(int index) {
+	double[] answer = new double[this.numRows];
+	for (int i = 0; i < this.numRows; i++) {
+	    answer[i] = this.data[i][index];
+	}
+	return answer;
+    }
+
+
+    /**
+     * Compares two Matrices.
+     *
+     * @param A - Matrix.
+     * @return Result of comparing A and this.
+     */
+    public boolean equals(Matrix A) {
+	if (A.numRows != this.numRows || A.numCols != this.numCols) {
+	    return false;
+	}
+
+	for (int i = 0; i < this.numRows; i++) {
+	    for (int j = 0; j < this.numCols; j++) {
+	        if (A.data[i][j] != this.data[i][j]) {
+	            return false;
+	        }
+            }
+        }
+        return true;
+    }
+
 }
