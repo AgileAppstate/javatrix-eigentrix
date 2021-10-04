@@ -22,10 +22,6 @@ public class TestTimes {
 		Matrix multiply = new Matrix(5,1,5);
 		multiply = baseMatrix.times(multiply);
 		Matrix answer = new Matrix(5,1,50);
-
-		multiply.print(2,1);
-		answer.print(2,1);
-
 		
 		assertTrue(multiply.equals(answer));
 	}
