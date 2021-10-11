@@ -19,7 +19,7 @@ public class TestTrace {
 	}
 
 	@Test
-	public void testTimeIllegalInput(){
+	public void testTraceIllegalInput(){
 		boolean result1 = true;
 
 		Matrix badMatrix = new Matrix(3, 4, 2);
