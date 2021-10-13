@@ -130,5 +130,21 @@ public class TestConstructors {
 	  assertTrue(result1);
       }
 
+      @Test
+      public void testIdentity_square() {
+	Matrix id = Matrix.identity(5,5);
+	assertEquals(id.trace(), 5);	
+
+      }
+
+      @Test
+      public void testIdentity_Nonsquare() {
+	Matrix id = Matrix.identity(3,2);
+	double[][] temp = {{1,0},{0,1},{0,0}};
+	//Matrix const = new Matrix(temp);
+	//assertTrue(id.equals(const));	
+
+      }
+
 
 }
