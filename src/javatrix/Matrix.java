@@ -228,5 +228,30 @@ public class Matrix {
 	return A;
     }
 
+	public Matrix getMatrix(int[] r, int[] c){
+		if(r.length == 0 || c.length == 0){
+			return new Matrix(0,0,0);
+		}
+		double[][] answer = new double[r.length][c.length];
+		int rows = 0;
+		int col = 0;
+		for(int i : r){
+			if(i > this.numRows || i < 0){
+				throw new ArrayIndexOutOfBoundsException("Row Indices are incorrect");
+			}
+			double[] row = getRow(i);
+			for(int j : c){
+				if(j > this.numCols || j < 0){
+					throw new ArrayIndexOutOfBoundsException("Column Indices are incorrect");
+				}
+				answer[rows][col] = row[j];
+				col++;
+			}
+			col = 0;
+			rows++;
+		}
+		return new Matrix(answer);
+	}
+
 
 }
