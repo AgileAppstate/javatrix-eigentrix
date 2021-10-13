@@ -278,6 +278,13 @@ public class Matrix {
 		}	
 	}
 
+	public Matrix transpose() {
+		double[][] base = new double[this.numCols][this.numRows];
+		for(int i = 0; i < this.numCols; i++){
+			base[i] = this.getColumn(i);
+		}
+		return new Matrix(base);
+	}
 
 
 }
