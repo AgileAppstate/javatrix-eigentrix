@@ -3,7 +3,7 @@
  *
  * CS 5666 Javatrix assignment.
  *
- * @author EigenTrix (Jay Fenwick)
+ * @author EigenTrix (Jay Fenwick, Abdel Issa)
  * @version Fall 2021
  *
  * COPYRIGHT (C) EigenTrix CS5666 team. All Rights Reserved.
@@ -20,7 +20,7 @@ package javatrix;
  * Spec defined at:
  * https://cs.appstate.edu/~jbf/classes/cs5666/Javatrix/
  *
- * @author EigenTrix (Jay Fenwick)
+ * @author EigenTrix (Jay Fenwick, Abdel Issa)
  * @version Fall 2021
  */
 
@@ -192,5 +192,25 @@ public class Matrix {
         }
         return true;
     }
+
+    /**
+     * Sum of the diagonal elements.
+     * @throws IllegalArgumentException - Can't Calculate dot
+     * product of different size vectors. 
+     * @return double representing the sum.
+     */
+    public double trace() {
+	if (this.numRows != this.numCols) {
+	    throw new IllegalArgumentException("Can't take the trace of a non-square matrix");
+	}
+	double answer = 0;
+	for (int i = 0; i < this.numRows; i++) {
+	    answer += this.data[i][i];
+	}
+	return answer;
+    }
+
+    
+
 
 }
