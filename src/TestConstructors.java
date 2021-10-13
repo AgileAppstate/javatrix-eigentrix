@@ -141,9 +141,8 @@ public class TestConstructors {
       public void testIdentity_Nonsquare() {
 	Matrix id = Matrix.identity(3,2);
 	double[][] temp = {{1,0},{0,1},{0,0}};
-	//Matrix const = new Matrix(temp);
-	//assertTrue(id.equals(const));	
-
+	Matrix base = new Matrix(temp);
+	assertTrue(id.equals(base));	
       }
 
 
