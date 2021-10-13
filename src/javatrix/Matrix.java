@@ -253,5 +253,31 @@ public class Matrix {
 		return new Matrix(answer);
 	}
 
+	public void setMatrix(int[] r, int[] c, Matrix in){
+		if(r.length == 0 || c.length == 0){
+			return;
+		}
+		int rows = 0;
+		int col = 0;
+		double[][] placeholder = this.data;
+		for(int i : r){
+			if(i > this.numRows || i < 0){
+				this.data = placeholder;
+				throw new ArrayIndexOutOfBoundsException("Row Indices are incorrect");
+			}
+			for(int j : c){
+				if(j > this.numCols || j < 0){
+					this.data = placeholder;
+					throw new ArrayIndexOutOfBoundsException("Column Indices are incorrect");
+				}
+				this.data[i][j] = in.data[rows][col];
+				col++;
+			}
+			col = 0;
+			rows++;
+		}	
+	}
+
+
 
 }
