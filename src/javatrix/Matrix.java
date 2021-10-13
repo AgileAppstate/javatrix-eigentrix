@@ -301,5 +301,17 @@ public class Matrix {
 		return answer;
 	}
 
+	public Matrix arrayRightDivide(Matrix A){
+		if (A.numRows != this.numRows || A.numCols != this.numCols) {
+	   		throw new IllegalArgumentException("Inputted Matrix is not the same dimensions as the current matrix");
+		}
 
+		double[][] answer = new double[this.numRows][this.numCols];
+		for(int i = 0; i < this.numRows; i++){
+			for(int j = 0; j < this.numCols; j++){
+				answer[i][j] = this.data[i][j] / A.data[i][j];
+			}
+		}
+		return new Matrix(answer);
+	}
 }
