@@ -212,5 +212,21 @@ public class Matrix {
 
     
 
+    /**
+     * Generate Identity Matrix.
+     *
+     * @param m - Number of rows.
+     * @param n - Number of columns.
+     * @return m-by-n matrix with 1s on the diagonal.
+     */
+    public static Matrix identity(int m, int n) {
+	int smaller = (m > n) ? n : m;
+	Matrix A = new Matrix(m, n, 0);
+	for (int i = 0; i < smaller; i++) {
+	    A.data[i][i] = 1;
+	} 
+	return A;
+    }
+
 
 }
