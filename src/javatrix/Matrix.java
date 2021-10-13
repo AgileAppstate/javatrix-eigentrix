@@ -286,5 +286,20 @@ public class Matrix {
 		return new Matrix(base);
 	}
 
+	public double normInf() {
+		double answer = -Double.MAX_VALUE;
+		for(int i = 0; i < this.numRows; i++){
+			double[] row = getRow(i);
+			double temp = 0;
+			for(double j : row){
+				temp += j;
+			}
+			if(temp > answer){
+				answer = temp;
+			}
+		}
+		return answer;
+	}
+
 
 }
