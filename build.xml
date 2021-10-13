@@ -35,6 +35,11 @@
     <java fork="true" dir="./src" classname="Testtrix"/>
   </target>
 
+  <target name="interactive" depends="compile"
+        description="Running the tests">
+    <java fork="true" dir="./src" classname="Interactive"/>
+  </target>
+
 
   <target name="clean"
         description="Clean up">
